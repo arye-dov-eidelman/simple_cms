@@ -13,6 +13,9 @@
 ActiveRecord::Schema.define(version: 2018_10_11_225358) do
 
   create_table "users", force: :cascade do |t|
+    t.string "first_name", limit: 50
+    t.string "email", default: "", null: false
+    t.string "password", limit: 40
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
