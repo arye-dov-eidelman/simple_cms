@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_12_162120) do
+ActiveRecord::Schema.define(version: 2018_10_14_013237) do
 
   create_table "admin_users", force: :cascade do |t|
     t.string "first_name", limit: 25
@@ -21,6 +21,38 @@ ActiveRecord::Schema.define(version: 2018_10_12_162120) do
     t.datetime "updated_at", null: false
     t.string "user_name", limit: 25
     t.index ["user_name"], name: "index_admin_users_on_user_name"
+  end
+
+  create_table "pages", force: :cascade do |t|
+    t.integer "subject_id"
+    t.string "name"
+    t.string "permalink"
+    t.integer "position"
+    t.boolean "visible"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["permalink"], name: "index_pages_on_permalink"
+    t.index ["subject_id"], name: "index_pages_on_subject_id"
+  end
+
+  create_table "sections", force: :cascade do |t|
+    t.integer "page_id"
+    t.string "name"
+    t.integer "position"
+    t.boolean "visible"
+    t.string "content_type"
+    t.text "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["page_id"], name: "index_sections_on_page_id"
+  end
+
+  create_table "subjects", force: :cascade do |t|
+    t.string "name"
+    t.integer "position"
+    t.boolean "visible"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end
