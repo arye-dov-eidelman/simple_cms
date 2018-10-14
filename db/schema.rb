@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_14_013237) do
+ActiveRecord::Schema.define(version: 2018_10_14_014252) do
 
   create_table "admin_users", force: :cascade do |t|
     t.string "first_name", limit: 25
@@ -28,7 +28,7 @@ ActiveRecord::Schema.define(version: 2018_10_14_013237) do
     t.string "name"
     t.string "permalink"
     t.integer "position"
-    t.boolean "visible"
+    t.boolean "visible", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["permalink"], name: "index_pages_on_permalink"
@@ -39,7 +39,7 @@ ActiveRecord::Schema.define(version: 2018_10_14_013237) do
     t.integer "page_id"
     t.string "name"
     t.integer "position"
-    t.boolean "visible"
+    t.boolean "visible", default: false
     t.string "content_type"
     t.text "content"
     t.datetime "created_at", null: false
@@ -50,7 +50,7 @@ ActiveRecord::Schema.define(version: 2018_10_14_013237) do
   create_table "subjects", force: :cascade do |t|
     t.string "name"
     t.integer "position"
-    t.boolean "visible"
+    t.boolean "visible", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
