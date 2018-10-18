@@ -8,7 +8,7 @@ class SubjectsController < ApplicationController
   end
 
   def new
-    @subject = Subject.new(name: :Defualt)
+    @subject = Subject.new
   end
 
   def create

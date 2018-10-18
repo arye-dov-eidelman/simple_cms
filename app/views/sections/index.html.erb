@@ -15,8 +15,6 @@
       <th>Section</th>
       <th>Page</th>
       <th>Visible</th>
-      <th>Content</th>
-      <th>Content type</th>
       <th>Actions</th>
     </tr>
     <% @sections.each do |section| %>
@@ -25,8 +23,6 @@
       <td><%= section.name %></td>
       <td><%= link_to( section.page.name, subject_path(section.page_id)) %></td>
       <td class="center"><%= section.visible ? 'Yes' : 'No' %></td>
-      <td><%= section.content_type %></td>
-      <td><%= section.content %></td>
       <td class="actions">
         <%= link_to("Show", section_path(section), :class => 'action show') %>
         <%= link_to("Edit", edit_section_path(section), :class => 'action edit') %>

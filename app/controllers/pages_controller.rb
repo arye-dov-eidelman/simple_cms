@@ -8,11 +8,10 @@ class PagesController < ApplicationController
   end
 
   def new
-    @page = Page.new(name: :Defualt)
+    @page = Page.new
   end
 
   def create
-    byebug
     @page = Page.new(page_params)
     if @page.save
       flash[:notice] = 'Page created successfully'
@@ -50,6 +49,6 @@ class PagesController < ApplicationController
   private
 
   def page_params
-    params.require(:page).permit(:name, :subject_id, :position, :visible)
+    params.require(:page).permit(:name, :subject_id, :position, :visible, :permalink)
   end
 end
